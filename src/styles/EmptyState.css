@@ -1,0 +1,16 @@
+.btn-primary {
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  
+  .btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(13, 110, 253, 0.25);
+  }
+  
+  .rounded-circle {
+    transition: transform 0.3s ease;
+  }
+  
+  .rounded-circle:hover {
+    transform: scale(1.05);
+  }

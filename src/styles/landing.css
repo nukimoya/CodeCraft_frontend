@@ -1,0 +1,53 @@
+:root {
+  --accent-color: #00bfff;
+  --accent-hover: #00cc7d;
+  --accent-dark: #00995e;
+}
+
+.text-primary {
+  color: var(--accent-color) !important;
+}
+
+.bg-primary {
+  background-color: var(--accent-color) !important;
+}
+
+.border-primary {
+  border-color: var(--accent-color) !important;
+}
+
+.btn-primary {
+  background-color: var(--accent-color);
+  border-color: var(--accent-color);
+  color: #000;
+}
+
+.btn-primary:hover {
+  background-color: var(--accent-hover);
+  border-color: var(--accent-hover);
+  color: #000;
+}
+
+.btn-outline-primary {
+  color: var(--accent-color);
+  border-color: var(--accent-color);
+}
+
+.btn-outline-primary:hover {
+  background-color: var(--accent-color);
+  border-color: var(--accent-color);
+  color: #000;
+}
+
+.progress-bar {
+  background-color: var(--accent-color);
+}
+
+/* Optional: Add a subtle glow effect to primary elements */
+.btn-primary, .feature-icon {
+  box-shadow: 0 0 15px rgba(0, 255, 157, 0.3);
+}
+
+.btn-primary:hover {
+  box-shadow: 0 0 20px rgba(0, 255, 157, 0.5);
+}

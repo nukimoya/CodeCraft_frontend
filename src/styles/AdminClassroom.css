@@ -1,0 +1,23 @@
+.hover-shadow {
+  transition: all 0.3s ease;
+}
+
+.hover-shadow:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(10, 38, 71, 0.1) !important;
+}
+
+.transition-all {
+  transition: all 0.3s ease;
+}
+
+.btn-dark:hover {
+  background-color: #0051a8 !important;
+  border-color: #051A30 !important;
+}
+
+.btn-outline-dark:hover {
+  background-color: #0051a8 !important;
+  border-color: #0A2647 !important;
+  color: white !important;
+}

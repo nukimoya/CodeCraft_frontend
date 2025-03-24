@@ -32,13 +32,74 @@ const LearnerProfile = () => {
   const { user, dispatch } = useContext(AuthContext);
   const api = useAxios();
   const [isEditing, setIsEditing] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
+  const [userStats, setUserStats] = useState({
+    current_streak: 0,
+    highest_streak: 0,
+    total_active_days: 0,
+    xp: 0
+  });
+  const [loading, setLoading] = useState(true);
+  // eslint-disable-next-line
+  const [error, setError] = useState(null);
   const [editForm, setEditForm] = useState({
     username: user?.data?.user?.username || "",
     email: user?.data?.user?.email || "",
     Level: user?.data?.user?.Level || "",
     role: user?.data?.user?.role || "qwerty",
   });
+
+  useEffect(() => {
+    const fetchUserStats = async () => {
+      if (!user?.data?.user?.id) {
+        setLoading(false);
+        return;
+      }
+      
+      try {
+        setLoading(true);
+        setError(null);
+        
+        const token = user.data.token;
+        const userId = user.data.user.id;
+        
+        const response = await fetch(`http://localhost:5005/learner/${userId}/profile`, {
+          headers: {
+            'Authorization': `Bearer ${token}`,
+            'Accept': 'application/json'
+          }
+        });
+        
+        if (!response.ok) {
+          throw new Error(`Failed to fetch user stats: ${response.status}`);
+        }
+        
+        const data = await response.json();
+        // console.log('Fetched user stats:', data);
+        
+        setUserStats({
+          current_streak: data?.user?.current_streak,
+          highest_streak: data?.user?.highest_streak,
+          total_active_days: data?.user?.total_active_days,
+          xp: data?.user?.xp || user?.data?.user?.xp || 0
+        });
+      } catch (error) {
+        console.error('Error fetching user stats:', error);
+        setError('Failed to load your stats. Please try again later.');
+        
+        // Fallback to user data from context if API fails
+        setUserStats({
+          current_streak: user?.data?.user?.current_streak || 0,
+          highest_streak: user?.data?.user?.highest_streak || 0,
+          total_active_days: user?.data?.user?.total_active_days || 0,
+          xp: user?.data?.user?.xp || 0
+        });
+      } finally {
+        setLoading(false);
+      }
+    };
+    
+    fetchUserStats();
+  }, [user?.data?.user?.id, user?.data?.token, user?.data?.user]);
 
   // Fetch XP directly from the database
   const [userXp, setUserXp] = useState(0);
@@ -88,7 +149,7 @@ const LearnerProfile = () => {
 
   const handleEditSubmit = async (e) => {
     e.preventDefault();
-    setIsLoading(true);
+    setLoading(true);
     try {
       if (!user?.data?.token) throw new Error("No authentication token found.");
 
@@ -107,7 +168,7 @@ const LearnerProfile = () => {
     } catch (error) {
       console.error("Error updating profile:", error.message);
     } finally {
-      setIsLoading(false);
+      setLoading(false);
     }
   };
 
@@ -128,9 +189,9 @@ const LearnerProfile = () => {
             <div className="d-flex justify-content-between align-items-center mb-4">
               <h1 className="h4">Student Profile Information</h1>
               <button
-                onClick={() => !isLoading && setIsEditing(!isEditing)}
+                onClick={() => !loading && setIsEditing(!isEditing)}
                 className="btn btn-outline-primary d-flex align-items-center"
-                disabled={isLoading}
+                disabled={loading}
               >
                 <FaEdit className="me-2" />
                 {isEditing ? "Cancel" : "Edit Profile"}
@@ -148,16 +209,16 @@ const LearnerProfile = () => {
                       value={editForm.username}
                       onChange={handleEditFormChange}
                       className="form-control"
-                      disabled={isLoading}
+                      disabled={loading}
                     />
                   </div>
                 </div>
                 <button 
                   type="submit" 
                   className="btn btn-dark mt-3"
-                  disabled={isLoading}
+                  disabled={loading}
                 >
-                  {isLoading ? (
+                  {loading ? (
                     <>
                       <span className="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
                       Saving Changes...
@@ -244,19 +305,19 @@ const LearnerProfile = () => {
                     <div className="col-md-4">
                       <div className="card border-primary text-primary p-3">
                         <p className="small mb-0">Current Streak</p>
-                        <h4>{user.data.user.current_streak || 0} days</h4>
+                        <h4>{userStats.current_streak || 0} days</h4>
                       </div>
                     </div>
                     <div className="col-md-4">
                       <div className="card border-success text-success p-3">
                         <p className="small mb-0">Highest Streak</p>
-                        <h4>{user.data.user.highest_streak || 0} days</h4>
+                        <h4>{userStats.highest_streak || 0} days</h4>
                       </div>
                     </div>
                     <div className="col-md-4">
                       <div className="card border-warning text-warning p-3">
                         <p className="small mb-0">Total Active Days</p>
-                        <h4>{user.data.user.total_active_days || 0} days</h4>
+                        <h4>{userStats.total_active_days || 0} days</h4>
                       </div>
                     </div>
                   </div>

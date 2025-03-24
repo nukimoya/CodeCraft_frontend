@@ -1,6 +1,6 @@
 // import React, { useContext, useState } from 'react';
 // import { toast } from 'react-toastify';
-// import { BarChart3, ArrowUpCircle, ArrowDownCircle, MinusCircle, Loader2, BookOpen, Trophy, Target } from 'lucide-react';
+// import { ArrowUpCircle, ArrowDownCircle, MinusCircle, BookOpen, } from 'lucide-react';
 // import { createPortal } from 'react-dom';
 // import { AuthContext } from '../context/authContext';
 

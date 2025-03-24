@@ -7,7 +7,7 @@ import { AuthContext } from '../../context/authContext';
 import TestInstructionsModal from '../../components/testInstructionsModal';
 import XpNotification from '../../components/XpNotification';
 import 'animate.css';
-import SlideProgressViewer from '../../components/slideProgressViewer';
+// import SlideProgressViewer from '../../components/slideProgressViewer';
 import { toast } from 'react-toastify';
 import { createPortal } from 'react-dom';
 
@@ -724,12 +724,12 @@ const StudentSectionPage = () => {
           </div>
         )}
 
-        <SlideProgressViewer
+        {/* <SlideProgressViewer
           slide={selectedSlideForAnswering}
           classroomId={classroomId}
           sectionId={sectionId}
           onClose={handleCloseInstructions}
-        />
+        /> */}
 
         <TestInstructionsModal
           isOpen={showTestInstructions}

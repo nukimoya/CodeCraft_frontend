@@ -28,7 +28,7 @@ const StudentClassroomProvider = ({ children }) => {
 
       const response = await fetch('http://localhost:5005/student/classrooms', {
         headers: {
-          'Authorization': token,
+          'Authorization': `Bearer${token}`,
         }
       });
 

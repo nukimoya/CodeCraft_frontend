@@ -6,11 +6,11 @@ import { useAuthContext } from '../hooks/useAuthContext';
 export const useAxios = () => {
     const { user } = useAuthContext();  // Add user here to access token
 
-    const baseURL = 'http://localhost:5005';
+    const baseURL = 'https://code-craft-kshqyyn4p-samuel-adelakun-projects.vercel.app/';
 
     const api = axios.create({
         baseURL,
-        timeout: 5000,
+        timeout:10000,
         headers: {
             'Content-Type': 'application/json',
             // Add default Authorization header if user token exists

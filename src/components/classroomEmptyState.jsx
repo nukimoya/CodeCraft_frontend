@@ -22,7 +22,7 @@ const StudentEmptyState = () => {
       setLoading(true);
       const token = user?.data?.token;
       
-      const response = await axios.get('http://localhost:5005/learner/classrooms/available', {
+      const response = await axios.get('https://codecraft-production.up.railway.app/learner/classrooms/available', {
         headers: {
           Authorization: `Bearer ${token}`,
         }
@@ -72,7 +72,7 @@ const StudentEmptyState = () => {
       const token = user?.data?.token;
       
       const response = await axios.post(
-        `http://localhost:5005/learner/classrooms/${classroomId}/join`,
+        `https://codecraft-production.up.railway.app/learner/classrooms/${classroomId}/join`,
         {},
         {
           headers: {

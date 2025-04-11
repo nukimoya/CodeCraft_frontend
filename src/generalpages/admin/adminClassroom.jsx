@@ -38,14 +38,14 @@ const AdminClassroom = () => {
       if (classroomId) {
         // Fetch specific classroom if ID is provided
         const specificClassroomRes = await axios.get(
-          `http://localhost:5005/admin/classrooms/${classroomId}`, 
+          `https://codecraft-production.up.railway.app/admin/classrooms/${classroomId}`, 
           config
         );
         classroomData = specificClassroomRes.data.classroom;
       } else {
         // Fetch first classroom if no ID provided
         const classroomsRes = await axios.get(
-          'http://localhost:5005/admin/classrooms', 
+          'https://codecraft-production.up.railway.app/admin/classrooms', 
           config
         );
         classroomData = classroomsRes.data.classrooms[0];
@@ -60,7 +60,7 @@ const AdminClassroom = () => {
 
       if (classroomData?.classroom_id) {
         const sectionsRes = await axios.get(
-          `http://localhost:5005/Admin/classrooms/${classroomData.classroom_id}/course-sections`,
+          `https://codecraft-production.up.railway.app/Admin/classrooms/${classroomData.classroom_id}/course-sections`,
           config
         );
         setSections(sectionsRes.data.sections || []);

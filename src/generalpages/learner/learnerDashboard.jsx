@@ -72,7 +72,7 @@ const LearnerDashboard = () => {
         const token = user.data.token;
         const userId = user.data.user.id;
         
-        const response = await fetch(`http://localhost:5005/learner/${userId}/profile`, {
+        const response = await fetch(`https://codecraft-production.up.railway.app/learner/${userId}/profile`, {
           headers: {
             'Authorization': `Bearer ${token}`,
             'Accept': 'application/json'

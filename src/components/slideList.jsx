@@ -17,7 +17,7 @@ const SlidesList = ({ slides, onDelete, classroomId, sectionId, onGenerateQuiz }
     try {
       const token = user?.data?.token;
       const response = await axios.get(
-        `http://localhost:5005/admin/classrooms/${classroomId}/course-sections/${sectionId}/slides/${slideId}/questions`,
+        `https://codecraft-production.up.railway.app/admin/classrooms/${classroomId}/course-sections/${sectionId}/slides/${slideId}/questions`,
         {
           headers: {
             'Authorization': `Bearer ${token}`,

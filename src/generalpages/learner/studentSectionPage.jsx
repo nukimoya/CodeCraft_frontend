@@ -80,8 +80,8 @@ const StudentSectionPage = () => {
           return;
         }
         
-        const slidesUrl = `http://localhost:5005/learner/classrooms/${classroomId}/sections/${sectionId}/slides`;
-        const pqUrl = `http://localhost:5005/learner/classrooms/${classroomId}/sections/${sectionId}/past-questions`;
+        const slidesUrl = `https://codecraft-production.up.railway.app/learner/classrooms/${classroomId}/sections/${sectionId}/slides`;
+        const pqUrl = `https://codecraft-production.up.railway.app/learner/classrooms/${classroomId}/sections/${sectionId}/past-questions`;
 
         const [slidesRes, pqRes] = await Promise.all([
           fetch(slidesUrl, {
@@ -129,7 +129,7 @@ const StudentSectionPage = () => {
       // Award XP
       try {
         const token = user?.data?.token;
-        const response = await fetch(`http://localhost:5005/users/${userId}/xp`, {
+        const response = await fetch(`https://codecraft-production.up.railway.app/users/${userId}/xp`, {
           method: 'POST',
           headers: {
             'Authorization': `Bearer ${token}`,
@@ -255,7 +255,7 @@ const StudentSectionPage = () => {
       const userId = user?.data?.user?.id;
       const token = user?.data?.token;
       
-      const response = await fetch(`http://localhost:5005/users/${userId}/xp_update`, {
+      const response = await fetch(`https://codecraft-production.up.railway.app/users/${userId}/xp_update`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -359,7 +359,7 @@ const StudentSectionPage = () => {
       //   tokenExists: !!token
       // });
 
-      const apiUrl = `http://localhost:5005/learner/classrooms/${classroomId}/sections/${sectionId}/slides/${slide.slide_id}/slides-progress`;
+      const apiUrl = `https://codecraft-production.up.railway.app/learner/classrooms/${classroomId}/sections/${sectionId}/slides/${slide.slide_id}/slides-progress`;
       // console.log('API URL:', apiUrl);
 
       // Debug: Log headers

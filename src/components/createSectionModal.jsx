@@ -35,7 +35,7 @@ const CreateSectionModal = ({ isOpen, onClose, classroomId, onSuccess }) => {
         throw new Error('No classroom ID provided');
       }
 
-      const response = await fetch(`http://localhost:5005/Admin/classrooms/${classroomId}/course-sections/create`, {
+      const response = await fetch(`https://codecraft-production.up.railway.app/Admin/classrooms/${classroomId}/course-sections/create`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

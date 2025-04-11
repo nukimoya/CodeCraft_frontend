@@ -32,7 +32,7 @@ const SlideQuestionsModal = ({
     try {
       const token = user?.data?.token;
       const response = await axios.put(
-        `http://localhost:5005/Admin/classrooms/${classroomId}/course-sections/${sectionId}/slides/${slides.id}/questions/${updatedQuestion.id}`,
+        `https://codecraft-production.up.railway.app/Admin/classrooms/${classroomId}/course-sections/${sectionId}/slides/${slides.id}/questions/${updatedQuestion.id}`,
         updatedQuestion,
         {
           headers: {
@@ -89,7 +89,7 @@ const SlideQuestionsModal = ({
       setIsLoading(true);
       const token = localStorage.getItem('token');
       await axios.delete(
-        `http://localhost:5005/Admin/classrooms/${classroomId}/questions/${questionToDelete.id}`,
+        `https://codecraft-production.up.railway.app/Admin/classrooms/${classroomId}/questions/${questionToDelete.id}`,
         {
           headers: {
             'Authorization': `Bearer ${token}`,

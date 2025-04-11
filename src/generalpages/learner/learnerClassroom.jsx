@@ -58,7 +58,7 @@ const LearnerClassroomPage = () => {
       }
 
       // First fetch enrolled classrooms
-      const enrolledResponse = await fetch('http://localhost:5005/learner/classrooms', {
+      const enrolledResponse = await fetch('https://codecraft-production.up.railway.app/learner/classrooms', {
         headers: {
           Authorization: `Bearer ${token}`,
         }
@@ -79,7 +79,7 @@ const LearnerClassroomPage = () => {
         setActiveClassroomData(activeClassroom); // Store the active classroom data
 
         const [classroomData, sectionsData] = await Promise.all([
-          fetch(`http://localhost:5005/learner/classrooms/${activeClassroom.classroom_id}`, {
+          fetch(`https://codecraft-production.up.railway.app/learner/classrooms/${activeClassroom.classroom_id}`, {
             headers: {
               Authorization: `Bearer ${token}`,
             }
@@ -91,7 +91,7 @@ const LearnerClassroomPage = () => {
             }
             return res.json();
           }),
-          fetch(`http://localhost:5005/learner/classrooms/${activeClassroom.classroom_id}/sections`, {
+          fetch(`https://codecraft-production.up.railway.app/learner/classrooms/${activeClassroom.classroom_id}/sections`, {
             headers: {
               Authorization: `Bearer ${token}`,
             }

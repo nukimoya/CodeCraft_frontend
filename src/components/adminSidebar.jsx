@@ -54,7 +54,7 @@ const AdminSidebar = () => {
           }
         };
 
-        const response = await axios.get('http://localhost:5005/admin/classrooms', config);
+        const response = await axios.get('https://codecraft-production.up.railway.app/admin/classrooms', config);
         // console.log('Admin classrooms:', response.data);
         
         if (response.data.classrooms && response.data.classrooms.length > 0) {

@@ -59,8 +59,8 @@ const CourseSectionPage = () => {
       };
 
       const [slidesRes, pqRes] = await Promise.all([
-        axios.get(`http://localhost:5005/Admin/classrooms/${classroomId}/course-sections/${sectionId}/slides`, config),
-        axios.get(`http://localhost:5005/Admin/classrooms/${classroomId}/course-sections/${sectionId}/past-questions`, config)
+        axios.get(`https://codecraft-production.up.railway.app/Admin/classrooms/${classroomId}/course-sections/${sectionId}/slides`, config),
+        axios.get(`https://codecraft-production.up.railway.app/Admin/classrooms/${classroomId}/course-sections/${sectionId}/past-questions`, config)
       ]);
 
       setSlides(slidesRes.data.slides || []);
@@ -109,7 +109,7 @@ const CourseSectionPage = () => {
       }
 
       console.log('Sending form data to API:', {
-        endpoint: `http://localhost:5005/Admin/classrooms/${classroomId}/course-sections/${sectionId}/slides/upload`,
+        endpoint: `https://codecraft-production.up.railway.app/Admin/classrooms/${classroomId}/course-sections/${sectionId}/slides/upload`,
         classroomId,
         sectionId,
         slide_name: slideForm.slide_name,
@@ -122,7 +122,7 @@ const CourseSectionPage = () => {
       console.log('Using token:', token ? 'Token exists' : 'No token');
       
       const response = await axios.post(
-        `http://localhost:5005/Admin/classrooms/${classroomId}/course-sections/${sectionId}/slides/upload`,
+        `https://codecraft-production.up.railway.app/Admin/classrooms/${classroomId}/course-sections/${sectionId}/slides/upload`,
         formData,
         {
           headers: { 
@@ -187,7 +187,7 @@ const CourseSectionPage = () => {
 
       const token = user?.data?.token;
       await axios.post(
-        `http://localhost:5005/Admin/classrooms/${classroomId}/course-sections/${sectionId}/past-questions/upload`,
+        `https://codecraft-production.up.railway.app/Admin/classrooms/${classroomId}/course-sections/${sectionId}/past-questions/upload`,
         formData,
         {
           headers: { 
@@ -215,7 +215,7 @@ const CourseSectionPage = () => {
       console.log('Attempting to delete slide:', slideId);
 
       const response = await axios.delete(
-        `http://localhost:5005/admin/classrooms/${classroomId}/course-sections/${sectionId}/slides/${slideId}`,
+        `https://codecraft-production.up.railway.app/admin/classrooms/${classroomId}/course-sections/${sectionId}/slides/${slideId}`,
         {
           headers: { 
             'Authorization': `Bearer ${token}`,
@@ -238,7 +238,7 @@ const CourseSectionPage = () => {
     try {
       const token = user?.data?.token;
       await axios.delete(
-        `http://localhost:5005/course-rep/classrooms/${classroomId}/past-questions/${questionId}`,
+        `https://codecraft-production.up.railway.app/course-rep/classrooms/${classroomId}/past-questions/${questionId}`,
         {
           headers: { 'Authorization': `Bearer ${token}` }
         }

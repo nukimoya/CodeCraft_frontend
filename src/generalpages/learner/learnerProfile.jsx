@@ -62,7 +62,7 @@ const LearnerProfile = () => {
         const token = user.data.token;
         const userId = user.data.user.id;
         
-        const response = await fetch(`http://localhost:5005/learner/${userId}/profile`, {
+        const response = await fetch(`https://codecraft-production.up.railway.app/learner/${userId}/profile`, {
           headers: {
             'Authorization': `Bearer ${token}`,
             'Accept': 'application/json'
@@ -106,7 +106,7 @@ const LearnerProfile = () => {
   const fetchUserXp = useCallback(async () => {
     try {
       const token = user?.data?.token;
-      const response = await fetch(`http://localhost:5005/learner/${user?.data?.user?.id}/xp`, {
+      const response = await fetch(`https://codecraft-production.up.railway.app/learner/${user?.data?.user?.id}/xp`, {
         method: 'GET',
         headers: {
           'Authorization': `Bearer ${token}`,

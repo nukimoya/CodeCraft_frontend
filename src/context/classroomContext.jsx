@@ -27,7 +27,7 @@ const ClassroomProvider = ({ children }) =>  {
       const token = user?.data?.token;
       if (!token) throw new Error('No authentication token found.');
 
-      const response = await fetch('http://localhost:5005/Admin/classrooms', {
+      const response = await fetch('https://codecraft-production.up.railway.app/Admin/classrooms', {
         headers: {
           'Authorization': `Bearer ${token}`,
         }

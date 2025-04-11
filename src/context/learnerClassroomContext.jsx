@@ -26,7 +26,7 @@ const StudentClassroomProvider = ({ children }) => {
       const token = localStorage.getItem('token');
       if (!token) throw new Error('No authentication token found.');
 
-      const response = await fetch('http://localhost:5005/student/classrooms', {
+      const response = await fetch('https://codecraft-production.up.railway.app/student/classrooms', {
         headers: {
           'Authorization': `Bearer${token}`,
         }

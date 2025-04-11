@@ -6,7 +6,7 @@ import { useAuthContext } from '../hooks/useAuthContext';
 export const useAxios = () => {
     const { user } = useAuthContext();  // Add user here to access token
 
-    const baseURL = 'https://code-craft-swart-xi.vercel.app/';
+    const baseURL = 'https://codecraft-production.up.railway.app/';
 
     const api = axios.create({
         baseURL,

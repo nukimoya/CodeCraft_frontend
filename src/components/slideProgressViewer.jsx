@@ -20,7 +20,7 @@
 //       setLoadingProgress(true);
 //       const token = user?.data?.token;
 //       const response = await fetch(
-//         `http://localhost:5005/learner/classrooms/${classroomId}/slides/${slide.slide_id}/progress`,
+//         `https://codecraft-production.up.railway.app/learner/classrooms/${classroomId}/slides/${slide.slide_id}/progress`,
 //         {
 //           headers: {
 //             'Authorization': token,

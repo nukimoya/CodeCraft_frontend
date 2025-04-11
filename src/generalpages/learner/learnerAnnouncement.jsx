@@ -36,7 +36,7 @@ const StudentAnnouncements = () => {
           return;
         }
         
-        const url = `http://localhost:5005/learner/classrooms`;
+        const url = `https://codecraft-production.up.railway.app/learner/classrooms`;
         
         const response = await fetch(url, { 
           headers: { 
@@ -90,7 +90,7 @@ const StudentAnnouncements = () => {
           ? `?tags=${activeTags.join(',')}`
           : '';
           
-        const url = `http://localhost:5005/learner/classrooms/${selectedClassroom}/announcements${queryString}`;
+        const url = `https://codecraft-production.up.railway.app/learner/classrooms/${selectedClassroom}/announcements${queryString}`;
         
         const response = await fetch(url, { 
           headers: { 

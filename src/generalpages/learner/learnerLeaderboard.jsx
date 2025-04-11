@@ -48,7 +48,7 @@ const LearnerLeaderboard = () => {
           return;
         }
         
-        const url = `http://localhost:5005/learner/classrooms/available`;
+        const url = `https://codecraft-production.up.railway.app/learner/classrooms/available`;
         logDebug('FetchClassrooms', { url, method: 'GET' });
         
         const response = await fetch(url, { 
@@ -106,7 +106,7 @@ const LearnerLeaderboard = () => {
         throw new Error('Authentication token not found');
       }
       
-      const url = `http://localhost:5005/learner/classrooms/${selectedClassroom}/leaderboard`;
+      const url = `https://codecraft-production.up.railway.app/learner/classrooms/${selectedClassroom}/leaderboard`;
       logDebug('LeaderboardFetch', { url, method: 'GET', classroomId: selectedClassroom });
       
       const response = await fetch(

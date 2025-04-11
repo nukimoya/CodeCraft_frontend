@@ -37,7 +37,7 @@ const AdminDashboard = () => {
       try {
         const token = user?.data?.token;
         // console.log(token);
-        const response = await fetch('http://localhost:5005/admin/classrooms-stats', {
+        const response = await fetch('https://codecraft-production.up.railway.app/admin/classrooms-stats', {
           headers: {
             'Authorization': `Bearer ${token}`
           }
@@ -56,7 +56,7 @@ const AdminDashboard = () => {
     const fetchAdminClassrooms = async () => {
       try {
         const token = user?.data?.token;
-        const response = await fetch('http://localhost:5005/admin/classrooms', {
+        const response = await fetch('https://codecraft-production.up.railway.app/admin/classrooms', {
           headers: {
             'Authorization': `Bearer ${token}`
           }

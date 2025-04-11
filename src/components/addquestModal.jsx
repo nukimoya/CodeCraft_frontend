@@ -30,7 +30,7 @@ const AddQuestModal = ({ isOpen, onClose, onQuestAdded }) => {
       }
 
       const response = await axios.post(
-        'http://localhost:5005/api/quests/add',
+        'https://codecraft-production.up.railway.app/api/quests/add',
         questData,
         { 
           headers: { 

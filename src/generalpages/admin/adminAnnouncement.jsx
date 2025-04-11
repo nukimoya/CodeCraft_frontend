@@ -30,7 +30,7 @@ const AnnouncementPage = () => {
           return;
         }
 
-        const response = await axios.get('http://localhost:5005/admin/classrooms', {
+        const response = await axios.get('https://codecraft-production.up.railway.app/admin/classrooms', {
           headers: {
             'Authorization': `Bearer ${token}`,
             'Content-Type': 'application/json'
@@ -87,7 +87,7 @@ const AnnouncementPage = () => {
     try {
       const token = user?.data?.token;
       const response = await axios.post(
-        `http://localhost:5005/admin/classrooms/${selectedClassroom}/announcements`, 
+        `https://codecraft-production.up.railway.app/admin/classrooms/${selectedClassroom}/announcements`, 
         formData,
         {
           headers: { 

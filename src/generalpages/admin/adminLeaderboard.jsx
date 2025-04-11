@@ -35,7 +35,7 @@ const AdminLeaderboard = () => {
       }
       
       const response = await fetch(
-        'http://localhost:5005/admin/classrooms',
+        'https://codecraft-production.up.railway.app/admin/classrooms',
         { 
           headers: { 
             'Authorization': `Bearer ${token}`,
@@ -91,7 +91,7 @@ const AdminLeaderboard = () => {
       await Promise.all(studentIds.map(async (studentId) => {
         try {
           const response = await fetch(
-            `http://localhost:5005/learner/${studentId}/profile`,
+            `https://codecraft-production.up.railway.app/learner/${studentId}/profile`,
             { 
               headers: { 
                 'Authorization': `Bearer ${token}`,
@@ -134,7 +134,7 @@ const AdminLeaderboard = () => {
         throw new Error('Authentication token not found');
       }
       
-      const url = `http://localhost:5005/admin/classrooms/${selectedClassroom}/leaderboard`;
+      const url = `https://codecraft-production.up.railway.app/admin/classrooms/${selectedClassroom}/leaderboard`;
     //   console.log('LeaderboardFetch:', { url, method: 'GET', classroomId: selectedClassroom });
       
       const response = await fetch(

@@ -54,7 +54,7 @@ const SlideQuestionGenerator = ({ slide, classroomId, sectionId, onQuestionsGene
       `.trim();
 
       const response = await fetch(
-        `http://localhost:5005/admin/classrooms/${classroomId}/course-sections/${sectionId}/slides/${slide.slide_id}/generate-questions`,
+        `https://codecraft-production.up.railway.app/admin/classrooms/${classroomId}/course-sections/${sectionId}/slides/${slide.slide_id}/generate-questions`,
         {
           method: 'POST',
           headers: {

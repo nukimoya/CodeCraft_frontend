@@ -41,7 +41,7 @@ const CreateClassroomModal = ({ isOpen, onClose, onSuccess }) => {
 
       console.log('Sending request to create classroom...');
       const response = await fetch(
-        "http://localhost:5005/admin/classrooms/create",
+        "https://codecraft-production.up.railway.app/admin/classrooms/create",
         {
           method: "POST",
           headers: {

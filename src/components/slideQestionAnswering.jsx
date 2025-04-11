@@ -46,7 +46,7 @@ const SlideQuestionAnswering = ({
       
       const token = user?.data?.token;
       const response = await fetch(
-        `http://localhost:5005/learner/classrooms/${classroomId}/sections/${sectionId}/slides/${slideId}/test`,
+        `https://codecraft-production.up.railway.app/learner/classrooms/${classroomId}/sections/${sectionId}/slides/${slideId}/test`,
         {
           headers: {
             'Authorization': `Bearer ${token}`,
@@ -139,7 +139,7 @@ const SlideQuestionAnswering = ({
   const awardXp = useCallback(async (amount, reason, activityType) => {
     try {
       const token = user?.data?.token;
-      const response = await fetch(`http://localhost:5005/learner/${user?.data?.user?.id}/xp`, {
+      const response = await fetch(`https://codecraft-production.up.railway.app/learner/${user?.data?.user?.id}/xp`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -184,7 +184,7 @@ const SlideQuestionAnswering = ({
       console.log('Submission payload:', submissionPayload);
 
       const response = await fetch(
-        `http://localhost:5005/learner/classrooms/${classroomId}/sections/${sectionId}/slides/${slideId}/submit-test`,
+        `https://codecraft-production.up.railway.app/learner/classrooms/${classroomId}/sections/${sectionId}/slides/${slideId}/submit-test`,
         {
           method: 'POST',
           headers: {

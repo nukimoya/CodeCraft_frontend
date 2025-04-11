@@ -37,7 +37,7 @@ const AnnouncementsHub = () => {
           return;
         }
         
-        const response = await axios.get('http://localhost:5005/admin/classrooms', {
+        const response = await axios.get('https://codecraft-production.up.railway.app/admin/classrooms', {
           headers: { 'Authorization': `Bearer ${token}` }
         });
         
@@ -78,7 +78,7 @@ const AnnouncementsHub = () => {
         const query = selectedTag ? `?tag=${selectedTag}` : '';
         
         const response = await axios.get(
-          `http://localhost:5005/admin/classrooms/${selectedClassroom}/announcements${query}`,
+          `https://codecraft-production.up.railway.app/admin/classrooms/${selectedClassroom}/announcements${query}`,
           { headers: { 'Authorization': `Bearer ${token}` } }
         );
         
@@ -109,7 +109,7 @@ const AnnouncementsHub = () => {
       }
       
       await axios.delete(
-        `http://localhost:5005/admin/classrooms/${selectedClassroom}/announcements/${announcementId}`,
+        `https://codecraft-production.up.railway.app/admin/classrooms/${selectedClassroom}/announcements/${announcementId}`,
         { headers: { 'Authorization': `Bearer ${token}` } }
       );
       

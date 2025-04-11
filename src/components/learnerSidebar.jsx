@@ -53,7 +53,7 @@ const StudentSidebar = () => {
           }
         };
 
-        const response = await axios.get('http://localhost:5005/learner/classrooms', config);
+        const response = await axios.get('https://codecraft-production.up.railway.app/learner/classrooms', config);
         // console.log('Admin classrooms:', response.data);
         
         if (response.data.classrooms && response.data.classrooms.length > 0) {
